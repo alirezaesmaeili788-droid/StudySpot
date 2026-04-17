@@ -1,0 +1,248 @@
+:root{
+  --primary:#1FA883;
+  --primary-dark:#1E7F4F;
+  --mint:#E9FBF2;
+  --text:#1f2937;
+  --muted:#6b7280;
+  --border:#e5e7eb;
+  --shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background:#f7fffb;
+  color:var(--text);
+}
+
+/* ================= NAV ================= */
+.navbar{
+  background: var(--primary);
+  height: 70px;
+  margin: 20px;
+  border-radius: 16px;
+  padding: 0.5rem;
+}
+
+.nav-back{
+  background-image: linear-gradient(to bottom, var(--mint), rgba(98,210,162,0));
+  height: 110px;
+}
+
+.navbar-brand{
+  font-weight: 600;
+  color: #ffffff;
+  font-size: 24px;
+  transition: 0.3s color;
+}
+
+.login-button{
+  background-color: #ffffff;
+  color: var(--primary-dark);
+  font-size: 14px;
+  padding: 8px 20px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.login-button:hover{
+  background-color: var(--primary-dark);
+  color: #ffffff;
+}
+
+.navbar-toggler{
+  border: none;
+  font-size: 1.25rem;
+}
+
+.navbar-toggler:focus,
+.btn-close:focus{
+  box-shadow: none;
+  outline: none;
+}
+
+.nav-item{ font-size: 20px; }
+
+.nav-link{
+  color: #ffffff;
+  font-weight: 500;
+  position: relative;
+}
+
+.nav-link:hover,
+.nav-link:active,
+.nav-link.active{
+  color: var(--primary-dark);
+}
+
+@media (min-width: 991px){
+  .nav-link::before{
+    content:"";
+    position:absolute;
+    bottom:0;
+    left:50%;
+    transform:translateX(-50%);
+    width:0%;
+    height:2px;
+    background-color:#116719;
+    visibility:hidden;
+    transition:0.3s ease-in-out;
+  }
+  .nav-link:hover::before,
+  .nav-link.active::before{
+    width:100%;
+    visibility:visible;
+  }
+}
+
+/* ================= PAGE SPACE  ================= */
+.page-space{
+  padding-top: 140px;
+  padding-bottom: 60px;
+}
+
+/* ================= LAYOUT ================= */
+.wrap{
+  max-width:1100px;
+  margin:auto;
+  padding:20px;
+}
+
+.card{
+  background:#fff;
+  border-radius:26px;
+  box-shadow:var(--shadow);
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  gap:24px;
+  padding:26px;
+}
+
+.left{
+  background:var(--mint);
+  border-radius:22px;
+  padding:24px;
+}
+
+.left h1{
+  margin:10px 0;
+  font-size:40px;
+  color:#1F5E3B;
+}
+
+.left p{ color: var(--muted); }
+
+.badge{
+  background:#fff;
+  color: #116719;
+  border-radius:999px;
+  padding:6px 12px;
+  font-weight:700;
+  width:max-content;
+}
+
+/* ================= FORM ================= */
+.form h2{ margin:0; }
+
+.sub{
+  color:var(--muted);
+  font-size:14px;
+  margin-bottom:16px;
+}
+
+label{
+  font-weight:700;
+  color:#1F5E3B;
+  font-size:14px;
+  display:block;
+  margin:10px 0 6px;
+}
+
+input{
+  width:100%;
+  padding:12px 14px;
+  border-radius:12px;
+  border:1px solid var(--border);
+  font-size:15px;
+  background:#fff;
+}
+
+input:focus{
+  outline:none;
+  border-color:var(--primary);
+  box-shadow:0 0 0 4px rgba(31,168,131,.15);
+}
+
+.form-grid-2{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+
+.checks{ margin:14px 0; }
+
+.keep{
+  display:flex;
+  gap:8px;
+  font-size:14px;
+  color:var(--muted);
+}
+
+/* ================= BUTTONS ================= */
+.btn{
+  width:100%;
+  padding:12px;
+  border-radius:999px;
+  border:0;
+  font-weight:800;
+  cursor:pointer;
+  margin-top:10px;
+}
+
+.btn-primary{
+  background:var(--primary-dark);
+  color:#fff;
+}
+
+.btn-outline{
+  background:#fff;
+  color:var(--primary-dark);
+  border:1px solid var(--primary-dark);
+}
+
+.foot{
+  margin-top:12px;
+  font-size:14px;
+  text-align:center;
+}
+
+.foot a{
+  color:#2563eb;
+  text-decoration:none;
+}
+
+/* ================= MOBILE ================= */
+@media(max-width:900px){
+  .card{ grid-template-columns:1fr; }
+  .form-grid-2{ grid-template-columns:1fr; }
+}
+
+
+/* Account Page */
+.mini-card{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:16px;
+}
+
+.mini-title{
+  margin:0 0 10px 0;
+  font-size:18px;
+  color:#1F5E3B;
+  font-weight:800;
+}

@@ -1,0 +1,14 @@
+.vscode/
+
+db.local.php
+.env
+.env.*
+!.env.example
+
+uploads/requests/*
+uploads/spots/*
+!uploads/requests/.gitkeep
+!uploads/spots/.gitkeep
+
+Thumbs.db
+Desktop.ini
