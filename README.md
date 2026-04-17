@@ -1,52 +1,110 @@
 # StudySpot
 
-StudySpot ist eine PHP- und MySQL-Webanwendung fuer Studierende und Lernort-Betreiber. Nutzer koennen Lernorte suchen, filtern und bewerten. Owner koennen neue Orte einreichen, und Admins pruefen diese Anfragen im Backend.
+StudySpot is a PHP and MySQL web application designed to help students discover, review, and manage study-friendly places such as cafes, libraries, and coworking spaces. The platform supports multiple user roles, including students, location owners, and administrators.
 
-## Features
+## Overview
 
-- Startseite mit Suchbereich und dynamischen Statistiken
-- Spot-Liste mit Filtern fuer Typ, WLAN, Steckdosen, Gruppenfreundlichkeit und Lautstaerke
-- Detailseite mit Bewertungen
-- Registrierung, Login und Account-Bereich
-- Owner-Bereich fuer Lernort-Einreichungen
-- Admin-Bereich fuer Kontakt-Nachrichten und Spot-Anfragen
+The goal of StudySpot is to make it easier to find suitable places for studying by providing clear information about learning conditions, available facilities, and community feedback. In addition to search and review features, the system also includes owner submissions and an admin workflow for approving new locations.
+
+## Key Features
+
+- Homepage with search entry point and dynamic platform statistics
+- Spot listing with filters for type, Wi-Fi, power outlets, group friendliness, and noise level
+- Detailed location pages with ratings and user reviews
+- User registration, login, and account management
+- Owner area for submitting and managing study place requests
+- Admin area for reviewing new place submissions
+- Contact inbox for administrative message handling
+
+## User Roles
+
+### Guest
+
+- Browse public pages
+- View available study spots
+
+### Student
+
+- Register and log in
+- Review and rate study spots
+- Access personal account features
+
+### Owner
+
+- Submit new study places
+- Manage owned locations
+- Track submitted requests
+
+### Admin
+
+- Review and approve owner submissions
+- Manage incoming contact messages
+- Access all administrative workflows
 
 ## Tech Stack
 
 - PHP
 - MySQL / MariaDB
 - Bootstrap 5
-- Plain CSS
+- CSS
 
-## Projektstruktur
+## Project Structure
 
-- `index.php`: Startseite
-- `spots.php`: Spot-Liste
-- `spot.php`: Detailansicht eines Lernorts
-- `ort_anmelden.php`: Formular fuer Owner
-- `owner_home.php`: Bereich fuer Owner und Admin
-- `admin_requests.php`: Admin-Freigaben fuer neue Orte
-- `admin_contacts.php`: Admin-Inbox fuer Kontakt-Nachrichten
-- `database/studyspot.sql`: Datenbank-Schema
+- `index.php` - Homepage
+- `spots.php` - Spot listing and filtering
+- `spot.php` - Spot details and reviews
+- `register.php` - User registration
+- `login.php` - User login
+- `account.php` - User account page
+- `ort_anmelden.php` - Owner submission form
+- `owner_home.php` - Owner and admin overview
+- `admin_requests.php` - Admin approval workflow for new places
+- `admin_contacts.php` - Admin inbox for contact messages
+- `database/studyspot.sql` - Database schema
 
-## Lokal starten mit XAMPP
+## Local Setup with XAMPP
 
-1. XAMPP starten.
-2. `Apache` und `MySQL` aktivieren.
-3. Dieses Projekt nach `C:\xampp\htdocs\Web` legen.
-4. In `phpMyAdmin` eine Datenbank anlegen und `database/studyspot.sql` importieren.
-5. Optional: `db.local.example.php` zu `db.local.php` kopieren und Zugangsdaten anpassen.
-6. Im Browser aufrufen: `http://localhost/Web/index.php`
+### Requirements
 
-## Datenbank-Konfiguration
+- XAMPP
+- PHP 8+
+- MySQL or MariaDB
+- A browser
 
-Die App liest Datenbankdaten in dieser Reihenfolge:
+### Installation Steps
+
+1. Start XAMPP.
+2. Enable `Apache` and `MySQL`.
+3. Place the project in:
+
+```text
+C:\xampp\htdocs\web
+```
+
+4. Open `phpMyAdmin`.
+5. Create a database named `studyspot`.
+6. Import the SQL schema from:
+
+```text
+database/studyspot.sql
+```
+
+7. Optionally copy `db.local.example.php` to `db.local.php` and adjust database settings.
+8. Open the project in your browser:
+
+```text
+http://localhost/web/index.php
+```
+
+## Database Configuration
+
+The application resolves database configuration in the following order:
 
 1. `db.local.php`
-2. Umgebungsvariablen wie `DB_HOST`, `DB_USER`, `DB_PASS`, `DB_NAME`, `DB_PORT`
-3. Fallback auf lokale XAMPP-Defaults
+2. Environment variables such as `DB_HOST`, `DB_USER`, `DB_PASS`, `DB_NAME`, and `DB_PORT`
+3. Local XAMPP defaults
 
-Beispiel fuer `db.local.php`:
+Example `db.local.php`:
 
 ```php
 <?php
@@ -60,38 +118,71 @@ return [
 ];
 ```
 
-## Auf GitHub hochladen
+## Running the Project
 
-GitHub ist fuer das Repository perfekt geeignet, aber nicht fuer das Ausfuehren dieser App als Live-Seite. GitHub Pages unterstuetzt kein PHP und keine MySQL-Datenbank.
+Once Apache and MySQL are running and the database has been imported, the main application entry point is:
 
-Du kannst das Projekt trotzdem sauber auf GitHub als Portfolio- oder Uni-Projekt hochladen:
-
-1. Neues Repository auf GitHub erstellen, z. B. `studyspot`
-2. Lokal im Projektordner Git initialisieren
-3. Dateien committen
-4. Remote hinzufuegen
-5. Auf `main` pushen
-
-Beispiel:
-
-```bash
-git init -b main
-git add .
-git commit -m "Initial StudySpot project"
-git remote add origin https://github.com/DEIN-NAME/studyspot.git
-git push -u origin main
+```text
+http://localhost/web/index.php
 ```
 
-## Live Deployment
+Useful routes:
 
-Wenn du das Projekt online laufen lassen willst, brauchst du einen PHP-Host mit Datenbank, zum Beispiel:
+- `http://localhost/web/index.php`
+- `http://localhost/web/spots.php`
+- `http://localhost/web/login.php`
+- `http://localhost/web/register.php`
+- `http://localhost/web/admin_requests.php`
+
+## Git and GitHub Workflow
+
+StudySpot is well suited for version control with Git and hosting on GitHub as a source code repository.
+
+Typical workflow:
+
+1. Edit files locally in VS Code
+2. Save your changes
+3. Review them in GitHub Desktop or Git
+4. Commit your changes
+5. Push to GitHub
+
+Example:
+
+```bash
+git add .
+git commit -m "Update StudySpot documentation"
+git push
+```
+
+## Deployment Note
+
+GitHub Pages cannot run this project because it does not support PHP or MySQL. To deploy StudySpot online, you need a hosting provider that supports both PHP and a database.
+
+Possible options:
 
 - Render
 - Railway
 - InfinityFree
 - 000webhost
-- klassisches Webhosting mit PHP/MySQL
+- Traditional PHP/MySQL hosting
 
-## Hinweis
+## Repository Notes
 
-Die Verzeichnisse `uploads/requests` und `uploads/spots` bleiben im Repository erhalten, aber hochgeladene Dateien selbst werden per `.gitignore` ausgeschlossen.
+- The `uploads/requests` and `uploads/spots` directories remain in the repository structure.
+- Uploaded files themselves are excluded through `.gitignore`.
+- Local credentials should never be committed to GitHub.
+- Use `db.local.php` only for local or private environment configuration.
+
+## Future Improvements
+
+Potential next steps for the project include:
+
+- Favorites and saved study spots
+- Group study planning features
+- Media sharing or vlog integration
+- Special offers and promotions for partner locations
+- Improved analytics and moderation tools
+
+## License
+
+No license has been assigned yet. If you plan to publish the repository publicly, consider adding an open-source license such as MIT.
